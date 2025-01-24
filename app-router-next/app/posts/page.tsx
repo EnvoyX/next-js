@@ -6,8 +6,8 @@
 
 // Styles specific for this page (postPage.module.css)
 import styles from './postPage.module.css';
-import CardList from '../albums/components/Posts/CardList';
-import ViewUserButton from '../albums/components/Posts/ViewUserButton';
+import CardList from '../components/Posts/CardList';
+import ViewUserButton from '../components/Posts/ViewUserButton';
 
 const Posts = () => {
   return (
