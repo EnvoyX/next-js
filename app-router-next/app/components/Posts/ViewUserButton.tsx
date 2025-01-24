@@ -4,9 +4,13 @@
 // Thus, unable to use such useState or event handling
 // or any components not using browser API, useState, event handling can be view as  "Server Components"
 
-const ViewUserButton = () => {
+interface ViewUserButtonPropsType {
+  userId: number;
+}
+
+const ViewUserButton: React.FC<ViewUserButtonPropsType> = ({ userId }) => {
   const handleClick = () => {
-    alert('Button Clicked!');
+    alert(`userId : ${userId}`);
   };
   return (
     <>
