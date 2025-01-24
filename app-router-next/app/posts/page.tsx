@@ -5,11 +5,15 @@
 // or any components not using browser API, useState, event handling can be view as  "Server Components"
 
 // Styles specific for this page (postPage.module.css)
-import styles from './postPage.module.css';
-import CardList from '../components/Posts/CardList';
-import ViewUserButton from '../components/Posts/ViewUserButton';
+import styles from "./postPage.module.css";
+import CardList from "../components/Posts/CardList";
+import ViewUserButton from "../components/Posts/ViewUserButton";
 
-const Posts = () => {
+const base_url = "https://jsonplaceholder.typicode.com/posts";
+
+const Posts = async () => {
+  const response = await fetch(base_url);
+  const posts = await response.json();
   return (
     <>
       {/* <div className={styles.bgRed}>POSTINGAN PAGE</div> */}
