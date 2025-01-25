@@ -18,7 +18,11 @@ interface TypePosts {
 }
 
 const Posts = async () => {
-  const response = await fetch(base_url);
+  const response = await fetch(base_url, {
+    cache: 'no-store', // If there is a request, the change is done immideately at runtime (Server-side render)
+    // defaults at no-chace, which is run request only once after first load page (Static)
+    next: { revalidate: 3600 }, // Every time that is defined, if there changes of data, it will update or display the changes immideately
+  });
   const posts: TypePosts[] = await response.json();
   return (
     <>
@@ -26,7 +30,7 @@ const Posts = async () => {
       <h1 className="text-fuchsia-500">POSTINGAN PAGE</h1>
       {posts.map((post) => {
         return (
-          <CardList key={post.id + post.userId}>
+          <CardList key={post.id}>
             <p>{post.id}</p>
             <i>{post.title}</i>
             <p>{post.body}</p>
